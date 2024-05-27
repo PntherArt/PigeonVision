@@ -8,6 +8,7 @@ using System.Collections;
 [RequireComponent (typeof (CharacterController))]
 public class FirstPersonDrifter: MonoBehaviour
 {
+    //These additions are mine,, I add a wing flap during jump
     [SerializeField] AudioSource sound;
     [SerializeField] AudioClip[] wingSoundArray;
 
@@ -74,6 +75,7 @@ public class FirstPersonDrifter: MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
+            //This is my addition to the script, I add the wing sfx here to play random sounds in the array during flight.
             sound.clip = wingSoundArray[Random.Range(0, wingSoundArray.Length)];
             sound.PlayOneShot(sound.clip);
         }

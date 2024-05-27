@@ -15,6 +15,7 @@ public class SKSDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //This function happens when the player walks through the train door. It triggers the coroutines
         AnnAmb.Stop();
         JPNamb.Play();
         StartCoroutine(intro(1));
@@ -25,6 +26,7 @@ public class SKSDoor : MonoBehaviour
 
     IEnumerator intro(float delay)
     {
+        //this function changes the 3d models of the train so that it uses the inside with windows rather than an empty object. 
         yield return new WaitForSeconds(delay);
         trains[0].SetActive(false);
         trains[1].SetActive(false);
@@ -39,12 +41,14 @@ public class SKSDoor : MonoBehaviour
 
     IEnumerator english(float delay)
     {
+        //this simply runs the english announcement audio
         yield return new WaitForSeconds(delay);
         ENGamb.Play();
     }
 
     IEnumerator bye(float delay)
     {
+        //this sets the exit canvas active
         yield return new WaitForSeconds(delay);
         EndingScene.SetActive(true);
 
@@ -54,6 +58,7 @@ public class SKSDoor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //this allows the player to exit the game in the train.
             Application.Quit();
             Debug.Log("Quit!");
         }

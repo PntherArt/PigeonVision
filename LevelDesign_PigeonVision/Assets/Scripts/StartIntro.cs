@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartIntro : MonoBehaviour
 {
+    //This runs the intro when the game is loaded. This lasts for about 12 seconds.
 
     [SerializeField] AudioSource startamb;
     [SerializeField] GameObject[] windows;
@@ -11,6 +12,7 @@ public class StartIntro : MonoBehaviour
    
     void Start()
     {
+        //this starts the sound effects and locks the cursor to get ready for the intro
         Cursor.lockState = CursorLockMode.Locked;
         startamb.Play();
         StartCoroutine(intro(12));
@@ -18,6 +20,7 @@ public class StartIntro : MonoBehaviour
 
     IEnumerator intro(float delay)
     {
+        //this swaps the gameobjects so that the train can be exited and the game can start.
         yield return new WaitForSeconds(delay);
         trains[0].SetActive(false);
         trains[1].SetActive(true);

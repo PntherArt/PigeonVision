@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUpCard : MonoBehaviour
 {
+    //The player "picks" up the transport card on the floor and it swaps out the opol card to the "suica" card
+
     [SerializeField] GameObject opol;
     [SerializeField] GameObject lightSwitch;
     public Transform theDest;
